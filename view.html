@@ -26,6 +26,16 @@
         function movepagefinal() {
         }
 
+        function deleteitem() {
+            if (!confirm("정말 삭제하시겠습니까?(삭제한 내용은 복구할 수 없습니다.)")) {
+                alert("취소되었습니다.");
+            } else {
+                var link = './index.html';
+                location.href=link;
+                alert("삭제가 완료되었습니다.");
+            }
+        }
+
     </script>
     <link href="my.css" rel="stylesheet">
 </head>
@@ -52,6 +62,100 @@
     </div>
 
     <div class="row">
+
+        <div class="viewcontainer">
+            <div>
+                <div class="viewcontainertop" width="100%" cellspacing="0" cellpadding="0">
+
+                   
+                    <div class="viewtitle">
+                        <span class="nametitle"> 
+                            <span class="name">홍길동</span>
+                            <span>의 정보</span>
+                        </span>
+                        <span class="datetitle">
+                            <span>Date : </span>
+                            <span class="datevalue" value="">2023-10-10</span>
+                        </span>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="listcontainermiddle" width="100%" cellspacing="0" cellpadding="0">
+                        <div>
+                            <div class="listZ">
+                                <div class="viewlist">
+                                    <span width="" class="listTitleBorder">
+                                        <span class="no">No.1</span>
+                                    </sapn>
+                                    <span width="100" class="viewTitleBorder">
+                                        <button onclick="deleteitem()">Delete</button>
+                                    </span>
+                                    <span width="100" class="viewTitleBorder">
+                                        <button onclick="location.href='edit.html'">Edit</button>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="viewbox">
+                                <div class="viewBody">
+                                    <span>이름 : </span>
+                                    <span>홍길동</span>
+                                </div>
+                                <div class="viewBody">
+                                    <span>관계 : </span>
+                                    <span>친구</span>
+                                </div>
+                                <div class="viewBody">
+                                    <span>전화번호 : </span>
+                                    <span>010-2245-5555</span>
+                                </div>
+                                <div class="viewBody">
+                                    <span>이메일 : </span>
+                                    <span>22100554@handong.ac.kr</span>
+                                </div>
+                                <div class="viewBody">
+                                    <span>생일 : </span>
+                                    <span>10/45</span>
+                                </div>
+                                <div class="viewBody">
+                                    <span>주소 : </span>
+                                    <span>서울 강원 용인 인천</span>
+                                </div>
+
+                                <div>
+                                    <div>메모 :</div>
+                                    <div>
+                                        애국가 합창 음원 1~4절 가사
+                                        1. 동해물과 백두산이 마르고 닳도록
+                                        하느님이 보우하사 우리나라 만세
+                                        무궁화 삼천리 화려 강산
+                                        대한 사람 대한으로 길이 보전하세
+                                        2. 남산 위에 저 소나무 철갑을 두른 듯
+                                        바람 서리 불변함은 우리 기상일세
+                                        무궁화 삼천리 화려 강산
+                                        대한 사람 대한으로 길이 보전하세
+                                        3. 가을 하늘 공활한데 높고 구름 없이
+                                        밝은 달은 우리 가슴 일편단심일세
+                                        무궁화 삼천리 화려 강산
+                                        대한 사람 대한으로 길이 보전하세
+                                        4. 이 기상과 이 맘으로 충성을 다하여
+                                        괴로우나 즐거우나 나라 사랑하세
+                                        무궁화 삼천리 화려 강산
+                                        대한 사람 대한으로 길이 보전하세
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="line"></div>
+
+                </div>
+            </div>
+        </div>
 
         <span class="listcontainer">
             <div>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style></style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script>
 
         function searching() {
@@ -24,6 +25,67 @@
         }
 
         function movepagefinal() {
+        }
+
+        function updateitem() {
+            if(document.getElementById('fname').value.trim() == "") {
+                alert("이름을 입력해주세요.");
+                fname.focus();
+                return false;
+            }
+            if(document.getElementById('relationship').value.trim() == "") {
+                alert("관계를 입력해주세요.");
+                relationship.focus();
+                return false;
+            }
+            if(document.getElementById('phonenum').value.trim() == "") {
+                alert("전화번호를 입력해주세요.");
+                phonenum.focus();
+                return false;
+            }
+            if(document.getElementById('email').value.trim() == "") {
+                alert("이메일을 입력해주세요.");
+                email.focus();
+                return false;
+            }
+            if(document.getElementById('birth').value.trim() == "") {
+                alert("생일을 입력해주세요.");
+                birth.focus();
+                return false;
+            }
+            if(document.getElementById('house').value.trim() == "") {
+                alert("주소을 입력해주세요.");
+                house.focus();
+                return false;
+            }
+            if (!confirm("정말 수정하시겠습니까?(이전 내용은 복구할 수 없습니다.)")) {
+                alert("취소되었습니다.");
+            } else {
+                var link = './index.html';
+                location.href=link;
+                alert("게시물이 수정되었습니다.")
+            }
+        }
+
+        function unitem() {
+            var link = './index.html';
+            location.href=link;
+            alert("취소되었습니다.");
+        }
+
+        function deleteitem() {
+            if (!confirm("정말 삭제하시겠습니까?(삭제한 내용은 복구할 수 없습니다.)")) {
+                alert("취소되었습니다.");
+            } else {
+                var link = './index.html';
+                location.href=link;
+                alert("삭제가 완료되었습니다.");
+            }
+        }
+
+        function todaydate() {
+            const formattedDate = moment().format('YYYY-MM-DD');
+            document.getElementById('birth').max = formattedDate;
         }
 
     </script>
@@ -52,6 +114,86 @@
     </div>
 
     <div class="row">
+
+        <div class="viewcontainer">
+            <div>
+                <div class="viewcontainertop" width="100%" cellspacing="0" cellpadding="0">
+
+                   
+                    <div class="viewtitle">
+                        <span class="nametitle"> 
+                            <span class="name">연락처 편집</span>
+                        </span>
+                        <span class="datetitle">
+                            <span>Date : </span>
+                            <span class="datevalue" value="">2023-10-10</span>
+                        </span>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="listcontainermiddle" width="100%" cellspacing="0" cellpadding="0">
+                        <div>
+                            <div class="listZ">
+                                <div class="viewlist">
+                                    <span width="" class="listTitleBorder">
+                                        <span class="no">No.~</span>
+                                    </span>
+                                    <span width="100" class="viewTitleBorder">
+                                        <button onclick="deleteitem()">삭제</button>
+                                    </span>
+                                    <span width="100" class="viewTitleBorder">
+                                        <button onclick="unitem()">취소</button>
+                                    </span>
+                                    <span width="100" class="viewTitleBorder">
+                                        <button onclick="updateitem()">수정</button>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <form name="form_item" method="get" action="_valueitem.php">
+                                <div class="viewbox">
+                                    <div class="viewBody">
+                                        <span><a class="star">*</a>이름 : </span>
+                                        <input type="text" id="fname" name="fname" value="홍길동">
+                                    </div>
+                                    <div class="viewBody">
+                                        <span><a class="star">*</a>관계 : </span>
+                                        <input type="text" id="relationship" name="relationship" value="친구">
+                                    </div>
+                                    <div class="viewBody">
+                                        <span><a class="star">*</a>전화번호 : </span>
+                                        <input type="text" id="phonenum" name="phonenum" placeholder="use'-'" value="010-2445-5555">
+                                    </div>
+                                    <div class="viewBody">
+                                        <span><a class="star">*</a>이메일 : </span>
+                                        <input type="text" id="email" name="email" value="22103939@handong.ac.kr">
+                                    </div>
+                                    <div class="viewBody">
+                                        <span><a class="star">*</a>생일 : </span>
+                                        <input type="date" id="birth" name="birth" onclick="todaydate()" max="" value="2000-10-25">
+                                    </div>
+                                    <div class="viewBody">
+                                        <span><a class="star">*</a>주소 : </span>
+                                        <input type="text" id="house" name="house" value="서울 강원 용인 인천">
+                                    </div>
+    
+                                    <div>
+                                        <div>메모 :</div>
+                                        <textarea name="message" rows="10" cols="30">애국가 합창 음원 1~4절 가사 1. 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 2. 남산 위에 저 소나무 철갑을 두른 듯 바람 서리 불변함은 우리 기상일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 3. 가을 하늘 공활한데 높고 구름 없이 밝은 달은 우리 가슴 일편단심일세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세 4. 이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려 강산 대한 사람 대한으로 길이 보전하세</textarea>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    <div class="line"></div>
+
+                </div>
+            </div>
+        </div>
 
         <span class="listcontainer">
             <div>
